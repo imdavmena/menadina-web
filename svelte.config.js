@@ -8,7 +8,9 @@ export default {
   }),
 
   kit: {
-    adapter: adapter(),
+    adapter: adapter({
+      runtime: 'nodejs20.x'
+    }),
     alias: {
       $components: './src/lib/components',
       $data: './src/lib/data',

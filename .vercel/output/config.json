@@ -1,0 +1,129 @@
+{
+	"version": 3,
+	"routes": [
+		{
+			"src": ".*",
+			"continue": true,
+			"transforms": [
+				{
+					"type": "request.query",
+					"op": "delete",
+					"target": {
+						"key": "__pathname"
+					}
+				}
+			]
+		},
+		{
+			"src": "/categorias",
+			"dest": "/categorias/"
+		},
+		{
+			"src": "/categorias/",
+			"status": 308,
+			"headers": {
+				"Location": "/categorias"
+			}
+		},
+		{
+			"src": "/contacto",
+			"dest": "/contacto/"
+		},
+		{
+			"src": "/contacto/",
+			"status": 308,
+			"headers": {
+				"Location": "/contacto"
+			}
+		},
+		{
+			"src": "/productos/mdn-001",
+			"dest": "/productos/mdn-001/"
+		},
+		{
+			"src": "/productos/mdn-001/",
+			"status": 308,
+			"headers": {
+				"Location": "/productos/mdn-001"
+			}
+		},
+		{
+			"src": "/productos/mdn-002",
+			"dest": "/productos/mdn-002/"
+		},
+		{
+			"src": "/productos/mdn-002/",
+			"status": 308,
+			"headers": {
+				"Location": "/productos/mdn-002"
+			}
+		},
+		{
+			"src": "/productos/mdn-003",
+			"dest": "/productos/mdn-003/"
+		},
+		{
+			"src": "/productos/mdn-003/",
+			"status": 308,
+			"headers": {
+				"Location": "/productos/mdn-003"
+			}
+		},
+		{
+			"src": "/productos/mdn-004",
+			"dest": "/productos/mdn-004/"
+		},
+		{
+			"src": "/productos/mdn-004/",
+			"status": 308,
+			"headers": {
+				"Location": "/productos/mdn-004"
+			}
+		},
+		{
+			"src": "/_app/immutable/.+",
+			"headers": {
+				"cache-control": "public, immutable, max-age=31536000"
+			}
+		},
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "/_app/immutable/.+",
+			"status": 404,
+			"continue": false
+		},
+		{
+			"src": "^/productos/?(?:/__data.json)?$",
+			"dest": "/productos"
+		},
+		{
+			"src": "/.*",
+			"dest": "/![-]/catchall"
+		}
+	],
+	"overrides": {
+		"index.html": {
+			"path": ""
+		},
+		"categorias.html": {
+			"path": "categorias"
+		},
+		"contacto.html": {
+			"path": "contacto"
+		},
+		"productos/mdn-001.html": {
+			"path": "productos/mdn-001"
+		},
+		"productos/mdn-002.html": {
+			"path": "productos/mdn-002"
+		},
+		"productos/mdn-003.html": {
+			"path": "productos/mdn-003"
+		},
+		"productos/mdn-004.html": {
+			"path": "productos/mdn-004"
+		}
+	}
+}
