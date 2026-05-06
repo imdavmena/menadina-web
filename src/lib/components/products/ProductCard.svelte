@@ -2,12 +2,12 @@
   import type { Product } from '$data/products';
   import { formatCurrency } from '$utils/formatCurrency';
   import { buildWhatsappUrl } from '$utils/whatsapp';
-  import { PUBLIC_WHATSAPP_NUMBER } from '$env/static/public';
+  import { env } from '$env/dynamic/public';
 
   export let product: Product;
 
   const whatsappUrl = buildWhatsappUrl(
-    PUBLIC_WHATSAPP_NUMBER ?? '18001234567',
+    env.PUBLIC_WHATSAPP_NUMBER ?? '18001234567',
     `Hola MENADINA, quiero información sobre el producto ${product.name}.`
   );
 </script>

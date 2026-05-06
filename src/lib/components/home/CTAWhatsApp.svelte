@@ -1,9 +1,9 @@
 <script lang="ts">
   import { buildWhatsappUrl } from '$utils/whatsapp';
-  import { PUBLIC_WHATSAPP_NUMBER } from '$env/static/public';
+  import { env } from '$env/dynamic/public';
 
   const whatsappUrl = buildWhatsappUrl(
-    PUBLIC_WHATSAPP_NUMBER ?? '18001234567',
+    env.PUBLIC_WHATSAPP_NUMBER ?? '18001234567',
     'Hola MENADINA, quiero hablar sobre un pedido.'
   );
 </script>
