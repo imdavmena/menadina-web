@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { PageData } from './$types';
-  import { browser } from '$app/environment';
+  import { onMount } from 'svelte';
   import { buildWhatsappUrl } from '$utils/whatsapp';
   import { formatCurrency } from '$utils/formatCurrency';
   import { env } from '$env/dynamic/public';
@@ -10,12 +10,12 @@
 
   let whatsappUrl = '';
 
-  if (browser) {
+  onMount(() => {
     whatsappUrl = buildWhatsappUrl(
       env.PUBLIC_WHATSAPP_NUMBER ?? '18001234567',
       `Hola MENADINA, quiero información sobre el producto ${product.name}.`
     );
-  }
+  });
 </script>
 
 <svelte:head>
