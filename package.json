@@ -1,0 +1,27 @@
+{
+  "name": "menadina-store",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --config vite.config.js",
+    "build": "vite build --config vite.config.js",
+    "preview": "vite preview --config vite.config.js",
+    "check": "svelte-check --tsconfig ./tsconfig.json"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "^2.0.0",
+    "@sveltejs/kit": "^2.0.0",
+    "@sveltejs/vite-plugin-svelte": "^3.1.2",
+    "@tsconfig/svelte": "^4.0.0",
+    "@types/node": "^20.11.0",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.35",
+    "svelte": "^4.0.0",
+    "svelte-check": "^4.4.7",
+    "svelte-preprocess": "^6.0.3",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.21"
+  }
+}

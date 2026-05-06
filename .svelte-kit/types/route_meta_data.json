@@ -1,0 +1,20 @@
+{
+	"/": [
+		"src/routes/+layout.ts",
+		"src/routes/+layout.ts"
+	],
+	"/categorias": [
+		"src/routes/+layout.ts"
+	],
+	"/contacto": [
+		"src/routes/+layout.ts"
+	],
+	"/productos": [
+		"src/routes/productos/+page.ts",
+		"src/routes/+layout.ts"
+	],
+	"/productos/[id]": [
+		"src/routes/productos/[id]/+page.ts",
+		"src/routes/+layout.ts"
+	]
+}
