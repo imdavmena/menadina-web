@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-vercel';
 import sveltePreprocess from 'svelte-preprocess';
 
 export default {
@@ -8,7 +8,9 @@ export default {
   }),
 
   kit: {
-    adapter: adapter(),
+    adapter: adapter({
+      runtime: 'nodejs20.x'
+    }),
     alias: {
       $components: './src/lib/components',
       $data: './src/lib/data',
