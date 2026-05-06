@@ -1,15 +1,20 @@
 <script lang="ts">
   import type { Product } from '$data/products';
+  import { browser } from '$app/environment';
   import { formatCurrency } from '$utils/formatCurrency';
   import { buildWhatsappUrl } from '$utils/whatsapp';
   import { env } from '$env/dynamic/public';
 
   export let product: Product;
 
-  const whatsappUrl = buildWhatsappUrl(
-    env.PUBLIC_WHATSAPP_NUMBER ?? '18001234567',
-    `Hola MENADINA, quiero información sobre el producto ${product.name}.`
-  );
+  let whatsappUrl = '';
+
+  if (browser) {
+    whatsappUrl = buildWhatsappUrl(
+      env.PUBLIC_WHATSAPP_NUMBER ?? '18001234567',
+      `Hola MENADINA, quiero información sobre el producto ${product.name}.`
+    );
+  }
 </script>
 
 <article class="glass-card overflow-hidden transition hover:-translate-y-1 hover:shadow-xl">

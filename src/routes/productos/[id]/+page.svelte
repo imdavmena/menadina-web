@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { PageData } from './$types';
+  import { browser } from '$app/environment';
   import { buildWhatsappUrl } from '$utils/whatsapp';
   import { formatCurrency } from '$utils/formatCurrency';
   import { env } from '$env/dynamic/public';
@@ -7,10 +8,14 @@
   export let data: PageData;
   const { product } = data;
 
-  const whatsappUrl = buildWhatsappUrl(
-    env.PUBLIC_WHATSAPP_NUMBER ?? '18001234567',
-    `Hola MENADINA, quiero información sobre el producto ${product.name}.`
-  );
+  let whatsappUrl = '';
+
+  if (browser) {
+    whatsappUrl = buildWhatsappUrl(
+      env.PUBLIC_WHATSAPP_NUMBER ?? '18001234567',
+      `Hola MENADINA, quiero información sobre el producto ${product.name}.`
+    );
+  }
 </script>
 
 <svelte:head>

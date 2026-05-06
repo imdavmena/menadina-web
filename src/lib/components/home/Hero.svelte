@@ -1,12 +1,17 @@
 <script lang="ts">
   import Button from '$components/ui/Button.svelte';
+  import { browser } from '$app/environment';
   import { buildWhatsappUrl } from '$utils/whatsapp';
   import { env } from '$env/dynamic/public';
 
-  const whatsappUrl = buildWhatsappUrl(
-    env.PUBLIC_WHATSAPP_NUMBER ?? '18001234567',
-    'Hola MENADINA, quiero información sobre su catálogo de productos.'
-  );
+  let whatsappUrl = '';
+
+  if (browser) {
+    whatsappUrl = buildWhatsappUrl(
+      env.PUBLIC_WHATSAPP_NUMBER ?? '18001234567',
+      'Hola MENADINA, quiero información sobre su catálogo de productos.'
+    );
+  }
 </script>
 
 <section class="relative overflow-hidden bg-white pt-10 pb-16">

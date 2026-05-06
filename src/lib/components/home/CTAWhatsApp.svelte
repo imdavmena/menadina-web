@@ -1,11 +1,16 @@
 <script lang="ts">
+  import { browser } from '$app/environment';
   import { buildWhatsappUrl } from '$utils/whatsapp';
   import { env } from '$env/dynamic/public';
 
-  const whatsappUrl = buildWhatsappUrl(
-    env.PUBLIC_WHATSAPP_NUMBER ?? '18001234567',
-    'Hola MENADINA, quiero hablar sobre un pedido.'
-  );
+  let whatsappUrl = '';
+
+  if (browser) {
+    whatsappUrl = buildWhatsappUrl(
+      env.PUBLIC_WHATSAPP_NUMBER ?? '18001234567',
+      'Hola MENADINA, quiero hablar sobre un pedido.'
+    );
+  }
 </script>
 
 <a
